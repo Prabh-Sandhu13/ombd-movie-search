@@ -19,7 +19,9 @@ class App extends React.Component {
       this.setState({ Nominations: [] })
     } else {
         const url = "http://www.omdbapi.com/?apikey=51fc5dae&t="+title;
-        fetch(url)
+        fetch(url,{
+          "Access-Control-Allow-Origin": "*"
+        })
             .then(res => res.json())
             .then((data) => {
               if(data.Response =="True") {
